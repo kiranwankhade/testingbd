@@ -6,15 +6,17 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
-// require('pg');
 let db;
-
+const path = require('path');
 (async () => {
   db = await open({
     filename: './bd4_assignment1_database.sqlite',
     driver: sqlite3.Database,
   });
 })();
+
+console.log("Database path:", path.resolve('./bd4_assignment1_database.sqlite'));
+
 /**
  * Exercise 1: Get All Restaurants
  * Objective: Fetch all restaurants from the database.
