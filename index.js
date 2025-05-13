@@ -282,7 +282,11 @@ app.get('/dishes/sort-by-price', async (req, res) => {
   }
 });
 
-export default app;
+app.get("/", (req,res) => {
+  return res.status(200).json("WELCOME");
+})
+
+module.exports = app;
 
 // app.listen(PORT, () => {
 //   console.log('Server running at port 3000');
